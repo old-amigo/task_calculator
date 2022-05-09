@@ -1,0 +1,21 @@
+{
+    "name": "amigo/task_kurulenko_calculator",
+    "autoload": {
+        "psr-4": {
+            "Model\\": "src/models",
+            "Controller\\": "src/controllers"
+        }
+    },
+    "authors": [
+        {
+            "name": "Куруленко Дмитрий",
+            "email": "dmitry.gwork@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^2.5",
+        "doctrine/dbal": "^3.3",
+        "robmorgan/phinx": "^0.12",
+        "symfony/yaml": "^6.0"
+    }
+}
