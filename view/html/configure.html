@@ -5,38 +5,52 @@
     <title>Configure</title>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../style/configFormStyle.css">
 </head>
 <body>
 <main>
     <div class="configure-form js-form">
-        <label class="configure-form__label">Выберите конфигурацию сревера</label>
         <form class="configure-form__form" action="/view/html/result.html" method="post" enctype="application/x-www-form-urlencoded">
-            <label class="configure-form__input" for="configure-form-proc">Процессор</label>
-            <select class="configure-form__input" id="configure-form-proc">
-                <option v-for="row in processors">{{ row.name }}</option>
-            </select>
+            <div class="configure-form__body">
+                <h1 class="configure-form__title">Выберите конфигурацию сревера</h1>
+                <div class="configure-form__item">
+                    <label class="configure-form__label" for="configure-form-proc">Процессор</label>
+                    <select class="configure-form__input" id="configure-form-proc">
+                        <option v-for="row in processors">{{ row.name }}</option>
+                    </select>
+                </div>
 
-            <label class="configure-form__input" for="configure-form-memory">Память</label>
-            <select class="configure-form__input" id="configure-form-memory">
+                <div class="configure-form__item">
+                    <label class="configure-form__label" for="configure-form-memory">Память</label>
+                    <select class="configure-form__input" id="configure-form-memory">
 
-            </select>
+                    </select>
+                </div>
 
-            <label class="configure-form__input" for="configure-form-drive">Диск</label>
-            <select class="configure-form__input" id="configure-form-drive">
+                <div class="configure-form__item">
+                    <label class="configure-form__label" for="configure-form-drive">Диск</label>
+                    <select class="configure-form__input" id="configure-form-drive">
 
-            </select>
+                    </select>
+                </div>
 
-            <label class="configure-form__input" for="configure-form-motherboard">Материнская плата</label>
-            <select class="configure-form__input" id="configure-form-motherboard">
+                <div class="configure-form__item">
+                    <label class="configure-form__label" for="configure-form-motherboard">Материнская плата</label>
+                    <select class="configure-form__input" id="configure-form-motherboard">
 
-            </select>
+                    </select>
+                </div>
 
-            <label class="configure-form__input" for="configure-form-case">Корпус</label>
-            <select class="configure-form__input" id="configure-form-case">
 
-            </select>
+                <div class="configure-form__item">
+                    <label class="configure-form__label" for="configure-form-case">Корпус</label>
+                    <select class="configure-form__input" id="configure-form-case">
 
-            <button class="configure-form__form-item-input" type="submit">Отправить</button>
+                    </select>
+                </div>
+
+                <button class="configure-form__form-item-input" type="submit">Отправить</button>
+            </div>
         </form>
     </div>
     <script src="/view/js/configureFormHandler.js"></script>
