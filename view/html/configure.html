@@ -10,33 +10,37 @@
 <body>
 <main>
     <div class="configure-form js-form">
-        <form class="configure-form__form" action="/view/html/result.html" method="post" enctype="application/x-www-form-urlencoded">
+        <form class="configure-form__form" action="/src/controllers/resultPage.php" method="post">
             <div class="configure-form__body">
                 <h1 class="configure-form__title">Выберите конфигурацию сревера</h1>
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-proc">Процессор</label>
-                    <select class="configure-form__input" id="configure-form-proc" v-model="selectedProcessor">
+                    <select class="configure-form__input" id="configure-form-proc" v-model="selectedProcessor"
+                            name="processor">
                         <option v-for="row in processors" v-bind:value="row.cost">{{ row.name }}</option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-memory">Память</label>
-                    <select class="configure-form__input" id="configure-form-memory" v-model="selectedMemory">
+                    <select class="configure-form__input" id="configure-form-memory" v-model="selectedMemory"
+                            name="memory">
                         <option v-for="row in memory" v-bind:value="row.cost">{{ row.name }}</option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-drive">Диск</label>
-                    <select class="configure-form__input" id="configure-form-drive" v-model="selectedDrive">
+                    <select class="configure-form__input" id="configure-form-drive" v-model="selectedDrive"
+                            name="drive">
                         <option v-for="row in drives" v-bind:value="row.cost">{{ row.name }}</option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-motherboard">Материнская плата</label>
-                    <select class="configure-form__input" id="configure-form-motherboard" v-model="selectedMotherboard">
+                    <select class="configure-form__input" id="configure-form-motherboard" v-model="selectedMotherboard"
+                            name="motherboard">
                         <option v-for="row in motherboards" v-bind:value="row.cost">{{ row.name }}</option>
                     </select>
                 </div>
@@ -44,20 +48,21 @@
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-case">Корпус</label>
-                    <select class="configure-form__input" id="configure-form-case" v-model="selectedCase">
+                    <select class="configure-form__input" id="configure-form-case" v-model="selectedCase" name="case">
                         <option v-for="row in cases" v-bind:value="row.cost">{{ row.name }}</option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label">
-                        Стоимость: {{ selectedProcessor + selectedMemory + selectedDrive + selectedMotherboard + selectedCase}} руб.
+                        Стоимость:
+                        {{ selectedProcessor + selectedMemory + selectedDrive + selectedMotherboard + selectedCase }}
+                        руб.
                     </label>
                 </div>
-
-                <button class="configure-form__form-item-input" type="submit">Отправить</button>
-
             </div>
+
+            <button class="configure-form__form-item-input" type="submit">К результату</button>
         </form>
     </div>
     <script src="/view/js/configureFormHandler.js"></script>

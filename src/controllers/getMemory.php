@@ -1,11 +1,10 @@
 <?php
 
 require_once __DIR__ . '/../../vendor/autoload.php';
+
 use Doctrine\DBAL;
 
-$connectionParams = [
-    'url' => 'sqlite:///db/calc_db.sqlite3'
-];
+$connectionParams = ['url' => 'sqlite:///db/calc_db.sqlite3'];
 
 
 try {
