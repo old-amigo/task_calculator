@@ -11,7 +11,7 @@ $connectionParams = [
 try {
     $conf = new DBAL\Configuration();
     $conn = DBAL\DriverManager::getConnection($connectionParams, $conf);
-    $data = $conn->fetchAllAssociative('SELECT name, cost FROM processors');
+    $data = $conn->fetchAllAssociative('SELECT name, cost FROM drives');
     echo json_encode($data, JSON_THROW_ON_ERROR);
 } catch (Exception $e) {
     echo $e->getMessage();
