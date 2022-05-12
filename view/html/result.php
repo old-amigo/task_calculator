@@ -41,8 +41,8 @@
         ?>
     </div>
     <div class="result__buttons-container">
-        <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to excel</button>
-        <button  class="result__button" onclick="generatePDF()">Export table to PDF</button>
+        <button  class="result__button" onclick="ExportToExcel('xlsx')">Сохранить в excel</button>
+        <button  class="result__button" onclick="generatePDF()">Сохранить в PDF</button>
     </div>
 </div>
 
