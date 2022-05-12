@@ -4,7 +4,10 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Doctrine\DBAL;
 
-$connectionParams = ['url' => 'sqlite:///db/calc_db.sqlite3'];
+$connectionParams = [
+    'path' => dirname(__DIR__, 2) . '/db/calc_db.sqlite3',
+    'driver' => 'pdo_sqlite'
+];
 
 
 try {
