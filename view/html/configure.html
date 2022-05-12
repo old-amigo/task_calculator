@@ -10,7 +10,7 @@
 <body>
 <main>
     <div class="configure-form js-form">
-        <form @submit.capture="onSubmit" class="configure-form__form" action="/view/html/result.php" method="post">
+        <form class="configure-form__form" action="/view/html/result.php" method="post">
             <div class="configure-form__body">
                 <h1 class="configure-form__title">Выберите конфигурацию сревера</h1>
                 <div class="configure-form__item">
@@ -51,6 +51,7 @@
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-case">Корпус</label>
                     <select class="configure-form__input" id="configure-form-case" v-model="selectedCase" name="case">
+
                         <option v-for="(row, index) in cases" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
                     </select>
                 </div>
@@ -59,7 +60,7 @@
                     <label class="configure-form__label">
                         Стоимость:
                         {{
-                            selectedProcessor.cost + selectedMemory.cost + selectedDrive.cost + selectedMotherboard.cost + selectedCase.cost
+                            JSON.parse(selectedProcessor).cost + JSON.parse(selectedMemory).cost + JSON.parse(selectedDrive).cost +  JSON.parse(selectedMotherboard).cost + JSON.parse(selectedCase).cost
                         }}
                         руб.
                     </label>
