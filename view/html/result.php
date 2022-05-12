@@ -14,23 +14,31 @@
         <?php
         echo "<table class='result__table' id='tbl_exporttable_to_xls'>";
         echo "
-    <tr>
-        <th class='result__label'>Позиция</th>
-        <th class='result__label'>Стоимость</th>
-    </tr>";
+            <thead>
+            <tr>
+                    <th><h1 class='result__label'>Позиция</h1></th>
+                    <th><h1 class='result__label'>Стоимость</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+        ";
         $sum = 0;
         foreach ($_POST as $item) {
             $obj = json_decode($item);
             $sum += $obj->cost;
             echo '<tr>';
-            echo "<td>$obj->name</td>";
-            echo "<td>$obj->cost р.</td>";
+            echo "<td><p class='result__label'>$obj->name</p></td>";
+            echo "<td><p class='result__label'>$obj->cost р.</p></td>";
             echo '</tr>';
         }
-        echo "</table>";
-        echo "<p>Сумма: $sum р.";
+        echo "</tbody></table>";
+        echo "<p class='result__label'> Сумма: $sum р.</p>";
         ?>
-        <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <div class="result__buttons-container">
+            <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+            <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to PDF</button>
+        </div>
+
     </div>
 </div>
 
