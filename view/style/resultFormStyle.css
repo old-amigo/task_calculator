@@ -67,3 +67,7 @@ table {
 .result__buttons-container {
     margin: 20px;
 }
+
+.result__tr--invisible, .result__td--invisible {
+    border: none;
+}

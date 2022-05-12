@@ -33,11 +33,11 @@
             echo "<td><p class='result__label'>$obj->cost р.</p></td>";
             echo '</tr>';
         }
-        echo "</tbody></table>";
-        echo "<p class='result__label'> Сумма: $sum р.</p>";
+        echo "<tr class='result__tr--invisible'><td class='result__td--invisible'><p class='result__label'> Сумма: $sum р.</p></td></tr>";
         $now = new DateTime('now', new DateTimeZone('Europe/Moscow'));
         $textNow = $now->format("j F Y");
-        echo "<p class='result__label'> Дата: $textNow </p>";
+        echo "<tr class='result__tr--invisible'><td class='result__td--invisible'><p class='result__label'> Дата: $textNow </p></td></tr>";
+        echo "</tbody></table>";
         ?>
     </div>
     <div class="result__buttons-container">
