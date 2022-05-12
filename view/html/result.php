@@ -35,7 +35,7 @@
         }
         echo "<tr class='result__tr--invisible'><td class='result__td--invisible'><p class='result__label'> Сумма: $sum р.</p></td></tr>";
         $now = new DateTime('now', new DateTimeZone('Europe/Moscow'));
-        $textNow = $now->format("j F Y");
+        $textNow = $now->format("j.m.Y");
         echo "<tr class='result__tr--invisible'><td class='result__td--invisible'><p class='result__label'> Дата: $textNow </p></td></tr>";
         echo "</tbody></table>";
         ?>
