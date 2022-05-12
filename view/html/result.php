@@ -5,12 +5,14 @@
     <title>Result</title>
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="/view/style/resultFormStyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
 </head>
 
 <body>
 <div class="result">
-    <h1 class="result__title">Вы выбрали:</h1>
-    <div class="result__body">
+    <div class="result__body" id="htmlContent">
+        <h1 class="result__title">Вы выбрали:</h1>
         <?php
         echo "<table class='result__table' id='tbl_exporttable_to_xls'>";
         echo "
@@ -33,12 +35,14 @@
         }
         echo "</tbody></table>";
         echo "<p class='result__label'> Сумма: $sum р.</p>";
+        $now = new DateTime('now', new DateTimeZone('Europe/Moscow'));
+        $textNow = $now->format("j F Y");
+        echo "<p class='result__label'> Дата: $textNow </p>";
         ?>
-        <div class="result__buttons-container">
-            <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to excel</button>
-            <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to PDF</button>
-        </div>
-
+    </div>
+    <div class="result__buttons-container">
+        <button  class="result__button" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <button  class="result__button" onclick="generatePDF()">Export table to PDF</button>
     </div>
 </div>
 
@@ -51,6 +55,15 @@
             XLSX.write(wb, {bookType: type, bookSST: true, type: 'base64'}) :
             XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
     }
+
+    function generatePDF() {
+        const element = document.getElementById('htmlContent');
+        html2pdf()
+            .from(element)
+            .save();
+    }
 </script>
+
+
 </body>
 </html>
