@@ -9,11 +9,8 @@ class SeedMotherboards extends AbstractSeed
     {
         $data = [
             [
-                'name' => 'AMD B550',
-                'cost' => '960'
-            ], [
-                'name' => 'Intel B460',
-                'cost' => '560'
+                'name' => 'X10SRi',
+                'cost' => '4000'
             ]
         ];
         $this->table('motherboards')

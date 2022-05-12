@@ -9,17 +9,17 @@ class SeedMemory extends AbstractSeed
     {
         $data = [
             [
-                'name' => '8 ГБ DDR4 NON-ECC',
-                'cost' => '240'
+                'name' => '16 ГБ DDR4 ECC REG',
+                'cost' => '1280'
             ], [
-                'name' => '16 ГБ DDR4 NON-ECC',
-                'cost' => '480'
-            ], [
-                'name' => '32 ГБ DDR4 NON-ECC',
-                'cost' => '960'
-            ], [
-                'name' => '64 ГБ DDR4 NON-ECC',
+                'name' => '24 ГБ DDR4 ECC REG',
                 'cost' => '1920'
+            ], [
+                'name' => '32 ГБ DDR4 ECC REG',
+                'cost' => '2560'
+            ], [
+                'name' => '48 ГБ DDR4 ECC REG',
+                'cost' => '3840'
             ]
         ];
         $this->table('memory')
