@@ -10,7 +10,17 @@ Vue.createApp({
         selectedDrive: JSON.stringify({'name':'none', 'cost':0}),
         selectedMotherboard: JSON.stringify({'name':'none', 'cost':0}),
         selectedCase: JSON.stringify({'name':'none', 'cost':0})
-    }), methods: {
+    }),
+    computed: {
+        sum () {
+            return JSON.parse(this.selectedProcessor).cost
+                + JSON.parse(this.selectedMemory).cost
+                + JSON.parse(this.selectedDrive).cost
+                + JSON.parse(this.selectedMotherboard).cost
+                + JSON.parse(this.selectedCase).cost;
+        }
+    },
+    methods: {
         fetchProcessors: function () {
             axios.get('/src/controllers/getProcessors.php').then((response) => {
                 this.processors = response.data;
@@ -41,7 +51,7 @@ Vue.createApp({
                 this.cases = response.data;
             });
         },
-    }, mounted: function () {
+    }, created: function () {
         this.fetchProcessors();
         this.fetchMemory();
         this.fetchDrives();

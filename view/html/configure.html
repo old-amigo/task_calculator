@@ -17,52 +17,59 @@
                     <label class="configure-form__label" for="configure-form-proc">Процессор</label>
                     <select class="configure-form__input"
                             id="configure-form-proc"
+                            required
                             v-model="selectedProcessor"
                             name="processor">
-                        <option v-for="(row, index) in processors" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
+                        <option v-for="(row, index) in processors" v-bind:value="JSON.stringify(row)">
+                            {{ row.name }}
+                        </option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-memory">Память</label>
                     <select class="configure-form__input" id="configure-form-memory" v-model="selectedMemory"
+                            required
                             name="memory">
-                        <option v-for="(row, index) in memory" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
+                        <option v-for="(row, index) in memory" v-bind:value="JSON.stringify(row)">
+                            {{ row.name }}
+                        </option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-drive">Диск</label>
                     <select class="configure-form__input" id="configure-form-drive" v-model="selectedDrive"
+                            required
                             name="drive">
-                        <option v-for="(row, index) in drives" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
+                        <option v-for="(row, index) in drives" v-bind:value="JSON.stringify(row)">
+                            {{ row.name }}
+                        </option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-motherboard">Материнская плата</label>
                     <select class="configure-form__input" id="configure-form-motherboard" v-model="selectedMotherboard"
+                            required
                             name="motherboard">
-                        <option v-for="(row, index) in motherboards" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
+                        <option v-for="(row, index) in motherboards" v-bind:value="JSON.stringify(row)">
+                            {{ row.name }}
+                        </option>
                     </select>
                 </div>
 
 
                 <div class="configure-form__item">
                     <label class="configure-form__label" for="configure-form-case">Корпус</label>
-                    <select class="configure-form__input" id="configure-form-case" v-model="selectedCase" name="case">
-
+                    <select class="configure-form__input" id="configure-form-case" v-model="selectedCase" name="case" required>
                         <option v-for="(row, index) in cases" v-bind:value="JSON.stringify(row)">{{ row.name }}</option>
                     </select>
                 </div>
 
                 <div class="configure-form__item">
                     <label class="configure-form__label">
-                        Стоимость:
-                        {{
-                            JSON.parse(selectedProcessor).cost + JSON.parse(selectedMemory).cost + JSON.parse(selectedDrive).cost +  JSON.parse(selectedMotherboard).cost + JSON.parse(selectedCase).cost
-                        }}
-                        руб.
+                        Стоимость: {{ sum }} руб.
                     </label>
                 </div>
             </div>
